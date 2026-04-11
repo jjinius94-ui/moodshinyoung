@@ -6,16 +6,15 @@
 <title>Mood SHINYOUNG — App Prototype</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-:root{
+ html { height: 100%; overflow: hidden;position: fixed; width: 100%; }
+ body { margin: 0; padding: 20px 12px; background: #E0D8CC; font-family: 'DM Sans', sans-serif; display: flex; gap: 14px; overflow-x: auto; overflow-y: hidden; height: 100vh; width: 100vw; box-sizing: border-box; -webkit-overflow-scrolling: touch; }
+.phone { width: 360px; height: 800px; max-height: calc(100vh - 40px); background: var(--iv); border-radius: 40px; border: 1.5px solid var(--bd); overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 16px 48px rgba(44,31,28,.13); flex-shrink: 0; position: relative; }
+ :root{
   --iv:#FAF8F4;--cr:#F5F0E8;--bl:#F0E4DC;--pa:#EDD6CE;
   --ro:#C9A49A;--mv:#9C7068;--wm:#6B4F48;--dk:#2C1F1C;
   --md:#7A5C55;--lt:#B09088;--bd:#E8DDD6;--ac:#C4917E;
   --heart:#E8D0C8;
 }
-body{font-family:'DM Sans',sans-serif;background:#E0D8CC;display:flex;justify-content:flex-start;padding:20px 12px;gap:14px;flex-wrap:nowrap;align-items:flex-start;overflow-x:auto;min-width:fit-content;}
-.serif{font-family:'Cormorant Garamond',serif;}
-.phone{width:360px;height:800px;background:var(--iv);border-radius:40px;border:1.5px solid var(--bd);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 16px 48px rgba(44,31,28,.13);flex-shrink:0;position:relative;}
 
 /* STATUS BAR */
 .sb{display:flex;justify-content:space-between;align-items:center;padding:12px 22px 4px;font-size:11px;font-weight:500;color:var(--dk);background:var(--iv);flex-shrink:0;}
@@ -388,7 +387,7 @@ body{font-family:'DM Sans',sans-serif;background:#E0D8CC;display:flex;justify-co
         <div class="rec-outer">
           <div class="rec-scroll" id="rscroll">
             <div class="rc"><div class="rc-img bg1"><img src="br1.png" alt="상품 이미지 19"><div class="pc-tags-h"><span class="tg tg-dk">노와이어</span><span class="tg tg-ro">~D컵</span></div></div><div class="rc-info"><div class="rc-line1"><span>비너스</span>모달 노와이어</div><div class="rc-price"><span class="rc-sale-c">30%</span> 23,000</div></div></div>
-            <div class="rc"><div class="rc-img bg3"><img src="src="br1.png"20.jpg" alt="상품 이미지 20"><div class="pc-tags-h"><span class="tg tg-pu">레이스</span><span class="tg tg-ro">~D컵</span></div></div><div class="rc-info"><div class="rc-line1"><span>와코루</span>레이스 풀컵</div><div class="rc-price">65,000</div></div></div>
+            <div class="rc"><div class="rc-img bg3"><img src="br1.png" alt="상품 이미지 20"><div class="pc-tags-h"><span class="tg tg-pu">레이스</span><span class="tg tg-ro">~D컵</span></div></div><div class="rc-info"><div class="rc-line1"><span>와코루</span>레이스 풀컵</div><div class="rc-price">65,000</div></div></div>
             <div class="rc"><div class="rc-img bg2"><img src="br1.png" alt="상품 이미지 21"><div class="pc-tags-h"><span class="tg tg-dk">심리스</span><span class="tg tg-ro">~D컵</span></div></div><div class="rc-info"><div class="rc-line1"><span>솔브</span>에어리 심리스</div><div class="rc-price">38,000</div></div></div>
             <div class="rc" style="opacity:.55;"><div class="rc-img bg4"><img src="br1.png" alt="상품 이미지 22"><div class="pc-tags-h"><span class="tg tg-pu">모달</span><span class="tg tg-ro">~D컵</span></div></div><div class="rc-info"><div class="rc-line1"><span>오르화</span>소프트 데일리</div><div class="rc-price">42,000</div></div></div>
           </div>
