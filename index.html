@@ -34,10 +34,9 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 .badge{position:absolute;top:-3px;right:-4px;width:12px;height:12px;background:var(--ac);border-radius:50%;font-size:6.5px;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;}
 
 /* NAV TABS */
-.ntabs{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 14px;background:var(--iv);border-bottom:.5px solid var(--bd);flex-shrink:0;}
-.ntabs::-webkit-scrollbar{display:none;}
-.nt{font-size:10.5px;font-weight:400;color:var(--lt);padding:7px 10px;white-space:nowrap;cursor:pointer;border-bottom:1.5px solid transparent;}
-.nt.on{color:var(--dk);border-bottom-color:var(--dk);font-weight:500;}
+.ntabs{display:flex;justify-content:space-between;padding:0 20px;background:var(--iv);border-bottom:.5px solid var(--bd);flex-shrink:0;}
+.nt{font-size:14px;font-weight:500;color:var(--lt);padding:10px 5px;white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent;}
+.nt.on{color:var(--dk);border-bottom-color:var(--dk);font-weight:600;}
 
 /* CONTENT */
 .content{flex:1;overflow-y:auto;scrollbar-width:none;}
@@ -49,12 +48,20 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;letter-spacing:.04em;color:var(--dk);}
 .more-lnk{font-size:9.5px;color:var(--md);cursor:pointer;}
 
-/* BOTTOM NAV — 선택시 ac 색상, 굵은 텍스트 */
+/* BOTTOM NAV */
 .bnav{display:flex;justify-content:space-around;align-items:center;padding:6px 4px 16px;background:var(--iv);border-top:.5px solid var(--bd);flex-shrink:0;}
 .bn{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;min-width:44px;}
 .bn-lbl{font-size:8px;font-weight:400;color:var(--lt);}
 .bn.on svg{fill:#C4917E !important;stroke:#C4917E !important;}
 .bn.on .bn-lbl{color:#C4917E !important;font-weight:600;}
+
+/* HOME POPUP*/
+.popup-overlay {  position: fixed;  top: 0; left: 0;  width: 100%; height: 100%;  background: rgba(0, 0, 0, 0.6);   display: flex;   align-items: center;  justify-content: center; z-index: 9999; / display: none; }
+.popup-content {  width: 300px;  background: #fff;  border-radius: 12px;  overflow: hidden;  box-shadow: 0 10px 25px rgba(0,0,0,0.3);}
+.popup-img { display: block; width: 100%; height: auto; }
+.popup-bottom {  display: flex;  justify-content: space-between;  align-items: center;  padding: 12px 15px;  background: #fff;  font-size: 12px;}
+.popup-left { display: flex; align-items: center; gap: 6px; color: #666; }
+.popup-close-btn { background: none; border: none; font-weight: 700; cursor: pointer; color: #333; }
 
 /* CHIPS */
 .chip-row{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;}
@@ -63,51 +70,22 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 .chip.on{background:var(--dk);color:var(--iv);border-color:var(--dk);}
 
 /* PRODUCT UNIVERSAL */
-.pg3{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
-.pg2{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;}
-.pc{cursor:pointer;}
-.pc-img{width:100%;aspect-ratio:1/1;border-radius:5px;position:relative;overflow:hidden;display:flex;align-items:flex-start;padding:5px;background:var(--cr);}
-.pc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:5px;z-index:0;}
+.pg3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pg2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.pc{cursor:pointer;display:flex;flex-direction:column;gap:4px;}
+.pc-img{width:100%;aspect-ratio:1/1;border-radius:10px;position:relative;overflow:hidden;display:flex;align-items:flex-start;padding:5px;background:var(--cr);}
+.pc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;z-index:0;}
 .pc-img .pc-wish{z-index:2;}
 .pc-img .pc-tags-h{z-index:2;position:relative;}
 .bg1,.bg2,.bg3,.bg4,.bg5,.bg6,.bg7{background:var(--cr);}
-
-.pc-tags-h{display:flex;flex-wrap:wrap;gap:2px;}
-.tg-dk{background:rgba(44,31,28,.78);color:var(--iv);}
-.tg-ro{background:rgba(196,145,126,.85);color:var(--iv);}
-.tg-pu{background:rgba(120,100,150,.78);color:var(--iv);}
-.tg-gr{background:rgba(70,110,70,.78);color:var(--iv);}
-.tg-new{background:rgba(44,31,28,.72);color:var(--iv);}
-.tg-sale{background:rgba(196,145,126,.9);color:var(--iv);}
-/* --- 여기서부터 복사해서 붙여넣으세요 --- */
-/* 1. 태그 전체를 감싸는 박스: 무조건 가로로 길게! */
-.pc-tags-h {
-    position: absolute !important;
-    top: 6px !important;
-    left: 6px !important;
-    display: flex !important;
-    flex-direction: row !important; /* 가로 나열 */
-    flex-wrap: nowrap !important;   /* 절대 줄바꿈 금지 */
-    gap: 4px !important;            /* 태그 사이 간격 여유 있게 */
-    width: auto !important;         /* 너비 제한 해제 */
-}
-
-/* 2. 개별 태그: 가늘고 길게, 여리여리하게 */
-.tg {
-    display: inline-block !important;
-    font-size: 9px !important;      /* 8px은 너무 작으니 9px로 살짝 업! */
-    padding: 1px 6px !important;    /* 위아래는 거의 없게, 옆으로 길게 */
-    border-radius: 4px !important;  /* 둥근 사각형 느낌 */
-    white-space: nowrap !important; /* 글자가 안에서 줄바꿈되는 것 방지 */
-    line-height: 1.4 !important;    /* 글자 높이 조절 */
-    letter-spacing: -0.03em !important; /* 글자를 살짝 모아서 세련되게 */
-}
-/* 진이님이 찾으신 컬러들 - 투명도만 살짝 다듬기 */
-.tg-dk { background: rgba(44, 31, 28, 0.7) !important; color: #fff; }
-.tg-ro { background: rgba(196, 145, 126, 0.85) !important; color: #fff; }
-.tg-pu { background: rgba(120, 100, 150, 0.7) !important; color: #fff; }
-.tg-gr { background: rgba(70, 110, 10, 0.7) !important; color: #fff; }
-/* --- 여기까지 --- */
+.pc-tags-h {position:absolute;top:6px;left:6px;display:flex;flex-direction:row;flex-wrap:nowrap;gap:4px;width:auto;z-index:2;}
+.tg {display:inline-block;font-size:9px;padding:1px 6px;border-radius:4px;white-space:nowrap;line-height:1.4;letter-spacing:-0.03em;}
+.tg-dk {background:rgba(44,31,28,0.7);color:#fff;}
+.tg-ro {background:rgba(196,145,126,0.85);color:#fff;}
+.tg-pu {background:rgba(120,100,150,0.7);color:#fff;}
+.tg-gr {background:rgba(70,110,10,0.7);color:#fff;}
+.tg-new {background:rgba(44,31,28,0.72);color:#fff;}
+.tg-sale {background:rgba(196,145,126,0.9);color:#fff;}
 .pc-wish{position:absolute;top:4px;right:4px;width:20px;height:20px;background:rgba(250,248,244,.88);border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .pc-info{padding:4px 1px 1px;}
 .pc-line1{font-size:9px;color:var(--dk);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -154,12 +132,11 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 .heart-wrap{position:relative;width:86px;flex-shrink:0;}
 .heart-svg{width:86px;height:80px;}
 .heart-txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;text-align:center;}
-.h-size{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;color:var(--dk);line-height:1.2;white-space:nowrap;}
+.h-size{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;color:var(--dk);line-height:1.2;white-space:nowrap;}
 .h-date{font-size:7px;color:var(--mv);margin-top:2px;}
 .rec-outer{flex:1;position:relative;overflow:hidden;}
-.rec-scroll{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;}
-.rec-scroll::-webkit-scrollbar{display:none;}
-.rc{flex-shrink:0;width:78px;cursor:pointer;}
+.rec-scroll{display:flex;gap:1px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;}
+.rc{flex-shrink:0;width:90px;cursor:pointer;}
 .rc-img{width:78px;height:78px;border-radius:5px;position:relative;overflow:hidden;display:flex;align-items:flex-start;padding:4px;background:var(--cr);}
 .rc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:5px;z-index:0;}
 .rc-img .pc-tags-h{z-index:2;position:relative;}
@@ -238,7 +215,7 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 .cat-left{width:90px;background:var(--cr);border-right:.5px solid var(--bd);overflow-y:auto;scrollbar-width:none;flex-shrink:0;}
 .cat-left::-webkit-scrollbar{display:none;}
 .cat-left-item{padding:11px 10px;font-size:11px;color:var(--md);cursor:pointer;border-bottom:.5px solid var(--bd);}
-.cat-left-item.on{background:var(--iv);color:var(--dk);font-weight:500;border-left:2px solid var(--dk);padding-left:8px;}
+.cat-left-item.on{background:var(--iv);color:var(--dk);font-weight:600;border-left:none;border-bottom:2px solid var(--dk);padding-left:10px;}
 .cat-right{flex:1;overflow-y:auto;scrollbar-width:none;padding:10px 12px;}
 .cat-right::-webkit-scrollbar{display:none;}
 .cat-action-row{display:flex;gap:7px;margin-bottom:10px;}
@@ -281,7 +258,6 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 .feat-cat-label{font-size:7.5px;color:var(--md);text-align:center;line-height:1.25;}
 .feat-cat-item.on .feat-cat-label{color:var(--dk);font-weight:600;}
 
-
 /* WISHLIST */
 .wish-tabs-row{display:flex;border-bottom:.5px solid var(--bd);padding:0 14px;flex-shrink:0;}
 .wish-tab{font-size:13px;font-weight:500;padding:8px 14px;cursor:pointer;border-bottom:2px solid transparent;color:var(--lt);}
@@ -294,21 +270,19 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 .wish-sep{font-size:10px;color:var(--bd);}
 
 /* MYPAGE */
-/* MYPAGE */
 .mp-header{padding:10px 16px 12px;background:var(--iv);border-bottom:none;flex-shrink:0;}
 .mp-toprow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-.mp-name-big{font-size:16px;font-weight:600;color:var(--dk);letter-spacing:-0.02em;}
+.mp-name-big{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--dk);letter-spacing:-0.02em;}
 .mp-hearts{display:flex;gap:7px;margin-bottom:8px;}
 .mh{position:relative;flex:1;cursor:pointer;}
 .mh-svg{width:100%;height:auto;}
-.mh-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:5px;}
-.mh-val{font-size:12px;font-weight:600;color:var(--dk);line-height:1.2;white-space:nowrap;}
-.mh-val span {color: #A69586 }
-.mh-sub{font-size:8px;color:#A69586;margin-top:2px;font-weight:400;}
+.mh-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0;}
+.mh-val{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;color:var(--dk);line-height:1.2;white-space:nowrap;}
+.mh-sub{font-size:7px;color:var(--mv);margin-top:2px;}
 .stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px;}
 .stat4-item{background:#F9F4E8;border-radius:7px;padding:10px 4px;text-align:center;cursor:pointer;}
 .stat4-lbl{font-size:7px;color:#A69586;letter-spacing:.05em;margin-bottom:3px;font-weight:400;}
-.stat4-val{font-size:14px;font-weight:600;color:var(--dk);}
+.stat4-val{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:var(--dk);}
 .mp-sec{padding:24px 16px 10px;border-bottom:none;}
 .mp-sec-lbl{font-size:8px;letter-spacing:.2em;color:var(--lt);margin-bottom:12px;font-weight:600;}
 .mp-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:none;cursor:pointer;}
@@ -325,6 +299,9 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 </head>
 <body>
 
+  </head>
+<body>
+
 <!-- ====== PHONE 1: HOME ====== -->
 <div class="phone">
   <div class="sb"><span>9:41</span><div style="display:flex;gap:5px;align-items:center;"><svg width="13" height="9" viewBox="0 0 14 10" fill="#2C1F1C"><rect x="0" y="3" width="2" height="7" rx=".5"/><rect x="3" y="2" width="2" height="8" rx=".5"/><rect x="6" y="1" width="2" height="9" rx=".5"/><rect x="9" y="0" width="2" height="10" rx=".5"/></svg><svg width="20" height="9" viewBox="0 0 22 10" fill="none"><rect x=".5" y=".5" width="18" height="9" rx="2" stroke="#2C1F1C" stroke-opacity=".3"/><rect x="1.5" y="1.5" width="12" height="7" rx="1.5" fill="#2C1F1C"/></svg></div></div>
@@ -338,7 +315,7 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
       <div class="ic"><div class="badge">2</div><svg width="16" height="16" fill="none" stroke="#6B4F48" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2h1.5l2.2 8h7l1.6-5H5"/><circle cx="7" cy="14" r="1.1" fill="#6B4F48" stroke="none"/><circle cx="12" cy="14" r="1.1" fill="#6B4F48" stroke="none"/></svg></div>
     </div>
   </div>
-  <div class="ntabs"><div class="nt on">홈</div><div class="nt">신상품</div><div class="nt">베스트</div><div class="nt">브랜드</div><div class="nt">이벤트</div></div>
+  <div class="ntabs"><div class="nt on">홈</div><div class="nt">신상품</div><div class="nt">베스트</div><div class="nt">매거진</div><div class="nt">이벤트</div></div>
 
   <div class="content">
     <!-- BANNER -->
@@ -392,7 +369,7 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
             <div class="rc"><div class="rc-img bg2"><img src="br1.png" alt="상품 이미지 21"><div class="pc-tags-h"><span class="tg tg-dk">심리스</span><span class="tg tg-ro">~D컵</span></div></div><div class="rc-info"><div class="rc-line1"><span>솔브</span>에어리 심리스</div><div class="rc-price">38,000</div></div></div>
             <div class="rc" style="opacity:.55;"><div class="rc-img bg4"><img src="br1.png" alt="상품 이미지 22"><div class="pc-tags-h"><span class="tg tg-pu">모달</span><span class="tg tg-ro">~D컵</span></div></div><div class="rc-info"><div class="rc-line1"><span>오르화</span>소프트 데일리</div><div class="rc-price">42,000</div></div></div>
           </div>
-          <div class="slider-arr" onclick="document.getElementById('rscroll').scrollBy({left:85,behavior:'smooth'})"><svg width="7" height="11" fill="none" stroke="#6B4F48" stroke-width="1.3" stroke-linecap="round"><path d="M2 1.5l4 4-4 4"/></svg></div>
+ 
         </div>
       </div>
     </div>
@@ -671,33 +648,36 @@ body { margin: 0; padding: 0; display: flex; flex-flow: row nowrap; align-items:
 
   <div class="content">
     <div class="mp-header">
-      <!-- 이름 크게 + > 버튼 -->
+      <!-- 이름 안녕하세요+ > 버튼 -->
       <div class="mp-toprow">
         <div class="mp-name-big serif">유신영님 안녕하세요!</div>
         <svg width="14" height="12" fill="none" stroke="#9C7068" stroke-width="1.3" stroke-linecap="round" style="cursor:pointer;flex-shrink:0;"><line x1="2" y1="6" x2="12" y2="6"/><path d="M8 2l4 4-4 4"/></svg>
       </div>
 
-      <!-- 3 HEARTS — 하트 배경 #E8D0C8 (heart color) -->
+      <!-- 3 HEARTS  -->
       <div class="mp-hearts">
-        <div class="mh">
-          <svg class="mh-svg" viewBox="0 0 100 92" fill="none"><path d="M50 85C50 85 8 60 8 30C8 17 17 8 30 8C38 8 45 13 50 20C55 13 62 8 70 8C83 8 92 17 92 30C92 60 50 85 50 85Z" fill="#E8D0C8"/></svg>
-          <div class="mh-inner">
-            <div class="mh-val serif">65D / M<br><span style="font-size:8px;font-weight:400;">26.01 측정</span></div>
-          </div>
-        </div>
-        <div class="mh">
-          <svg class="mh-svg" viewBox="0 0 100 92" fill="none"><path d="M50 85C50 85 8 60 8 30C8 17 17 8 30 8C38 8 45 13 50 20C55 13 62 8 70 8C83 8 92 17 92 30C92 60 50 85 50 85Z" fill="#E8D0C8"/></svg>
-          <div class="mh-inner">
-            <div class="mh-val serif">24개<br><span style="font-size:8px;font-weight:400;">65D 추천</span></div>
-          </div>
-        </div>
-        <div class="mh">
-          <svg class="mh-svg" viewBox="0 0 100 92" fill="none"><path d="M50 85C50 85 8 60 8 30C8 17 17 8 30 8C38 8 45 13 50 20C55 13 62 8 70 8C83 8 92 17 92 30C92 60 50 85 50 85Z" fill="#E8D0C8"/></svg>
-          <div class="mh-inner">
-            <div class="mh-val serif">바디스캐너<br><span style="font-size:8px;font-weight:400;">예약</span></div>
-          </div>
-        </div>
-      </div>
+  <div class="mh">
+    <svg class="mh-svg" viewBox="0 0 100 92" fill="none"><path d="M50 85C50 85 8 60 8 30C8 17 17 8 30 8C38 8 45 13 50 20C55 13 62 8 70 8C83 8 92 17 92 30C92 60 50 85 50 85Z" fill="#E8D0C8"/></svg>
+    <div class="mh-inner">
+      <div class="mh-val serif">65D / M</div>
+      <div class="mh-sub">26.01 측정</div>
+    </div>
+  </div>
+  <div class="mh">
+    <svg class="mh-svg" viewBox="0 0 100 92" fill="none"><path d="M50 85C50 85 8 60 8 30C8 17 17 8 30 8C38 8 45 13 50 20C55 13 62 8 70 8C83 8 92 17 92 30C92 60 50 85 50 85Z" fill="#E8D0C8"/></svg>
+    <div class="mh-inner">
+      <div class="mh-val serif">24개</div>
+      <div class="mh-sub">65D 추천</div>
+    </div>
+  </div>
+  <div class="mh">
+    <svg class="mh-svg" viewBox="0 0 100 92" fill="none"><path d="M50 85C50 85 8 60 8 30C8 17 17 8 30 8C38 8 45 13 50 20C55 13 62 8 70 8C83 8 92 17 92 30C92 60 50 85 50 85Z" fill="#E8D0C8"/></svg>
+    <div class="mh-inner">
+      <div class="mh-val serif">바디스캐너</div>
+      <div class="mh-sub">예약</div>
+    </div>
+  </div>
+</div>
 
       <!-- 4 STAT — 배경 하트와 동일 #E8D0C8, 라벨 얇고 작게, 값 세리프 동일 -->
       <div class="stat4">
@@ -771,6 +751,8 @@ function switchCatTop(el,cid){
     if(e)e.style.display=(id===cid)?displayMap[id]:'none';
   });
 }
+<script>
+  document.addEventListener("DOMContentLoaded", function() { var popup = document.getElementById('welcomePopup'); if (popup) {  popup.style.display = 'flex';  }});function closePopup() {var popup = document.getElementById('welcomePopup');if (popup) {popup.style.display = 'none';}  }
 </script>
 </body>
 </html>
